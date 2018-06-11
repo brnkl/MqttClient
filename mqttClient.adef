@@ -6,8 +6,6 @@ start: auto
 executables:
 {
     mqttClientService   = (mqttClientService)
-    testPublisher       = (testPublisher)
-    testSubscriber      = (testSubscriber)
 }
 
 processes:
@@ -15,8 +13,6 @@ processes:
     run:
     {
         (mqttClientService)
-        //(testPublisher)
-        //(testSubscriber)
     }
 
     envVars:
@@ -30,14 +26,6 @@ processes:
     }
 
     faultAction: restart
-}
-
-bindings:
-{
-    testPublisher.testPublisher.mqtt      -> mqttClientService.mqttClientService.mqtt
-    testPublisher.testPublisher.le_info   -> modemService.le_info
-    testSubscriber.testSubscriber.mqtt    -> mqttClientService.mqttClientService.mqtt
-    testSubscriber.testSubscriber.le_info -> modemService.le_info
 }
 
 extern:
