@@ -1,7 +1,5 @@
 TARGETS := wp85 wp750x wp76xx
 
-export MANGOH_ROOT=$(shell pwd)/../..
-
 .PHONY: all $(TARGETS)
 all: $(TARGETS) paho
 
